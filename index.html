@@ -8,6 +8,49 @@
     <link rel="icon" href="/images/algorithm-icon.svg" />
   </head>
   <body>
-    <nav class="nav-bar"></nav>
+    <nav class="nav-bar">
+      <h1 class="title">Sorting Visualizer</h1>
+      <span class="tribute">Designed & Coded by Zihan in California</span>
+      <ul class="algorithms">
+        <li><button>BUB</button></li>
+        <li><button>SEL</button></li>
+        <li><button>INS</button></li>
+        <li><button>MER</button></li>
+        <li><button>QUI</button></li>
+        <li><button>HEA</button></li>
+      </ul>
+      <div class="slider-container">
+        <span class="speed-text">Sorting Speed</span>
+        <div class="speed-container">
+          <input
+            type="range"
+            id="speed-slider"
+            class="slider"
+            min="1"
+            max="5"
+            value="3"
+            step="1"
+          />
+          <span class="speed-value">5</span>
+        </div>
+        <span class="size-text">Array Size</span>
+        <div class="size-container">
+          <input
+            type="range"
+            id="speed-slider"
+            class="slider"
+            min="20"
+            max="100"
+            value="50"
+            step="1"
+          />
+          <span class="size-value">100</span>
+        </div>
+      </div>
+      <div class="action-buttons">
+        <button>New Arrays</button>
+        <button>Let's Sort!</button>
+      </div>
+    </nav>
   </body>
 </html>
