@@ -115,3 +115,56 @@ span {
 .sort-btn:hover {
   background-color: #65ab03;
 }
+
+.visualizer-container {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+}
+
+.complexity {
+  margin-top: 5rem;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.complexity-title {
+  color: #e7f5ff;
+}
+
+.time-complexity {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.time-complexity div {
+  font-size: 1.4rem;
+}
+
+.time-worst {
+  color: #d3f9d8;
+}
+
+.time-average {
+  color: #8ce99a;
+}
+
+.time-best {
+  color: #51cf66;
+}
+
+.space-complexity {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.space-complexity div {
+  font-size: 1.4rem;
+}
+
+.space-worst {
+  color: #d3f9d8;
+}
