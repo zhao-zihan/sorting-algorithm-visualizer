@@ -6,50 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Let's Sort!</title>
     <link rel="icon" href="/images/algorithm-icon.svg" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Play&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav class="nav-bar">
-      <h1 class="title">Sorting Visualizer</h1>
-      <span class="tribute">Designed & Coded by Zihan in California</span>
-      <ul class="algorithms">
-        <li><button>BUB</button></li>
-        <li><button>SEL</button></li>
-        <li><button>INS</button></li>
-        <li><button>MER</button></li>
-        <li><button>QUI</button></li>
-        <li><button>HEA</button></li>
-      </ul>
-      <div class="slider-container">
-        <span class="speed-text">Sorting Speed</span>
-        <div class="speed-container">
-          <input
-            type="range"
-            id="speed-slider"
-            class="slider"
-            min="1"
-            max="5"
-            value="3"
-            step="1"
-          />
-          <span class="speed-value">5</span>
+      <div class="info-container">
+        <h1 class="title">Sorting Visualizer</h1>
+        <div class="personal-info">
+          <span class="tribute">Designed & Coded by Zihan in California</span>
+          <a href="https://github.com/zhao-zihan/sorting-algorithm-visualizer"
+            ><img
+              class="github-icon"
+              src="/images/github-fill.svg"
+              alt="Zihan's github icon"
+          /></a>
         </div>
-        <span class="size-text">Array Size</span>
-        <div class="size-container">
-          <input
-            type="range"
-            id="speed-slider"
-            class="slider"
-            min="20"
-            max="100"
-            value="50"
-            step="1"
-          />
-          <span class="size-value">100</span>
+      </div>
+      <div class="algos-container">
+        <select class="algos">
+          <option class="algo bubble" value="bubble">Bubble Sort</option>
+          <option class="algo selection" value="selection">
+            Selection Sort
+          </option>
+          <option class="algo insertion" value="insertion">
+            Insertion Sort
+          </option>
+          <option class="algo merge" value="merge">Merge Sort</option>
+          <option class="algo quick" value="quick">Quick Sort</option>
+          <option class="algo heap" value="heap">Heap Sort</option>
+        </select>
+      </div>
+
+      <div class="slider-container">
+        <div class="slider-sub-container speed-container">
+          <span class="slider-text speed-text">Sorting Speed</span>
+          <div class="wrapper">
+            <input
+              type="range"
+              id="speed-slider"
+              class="slider"
+              min="1"
+              max="5"
+              value="3"
+              step="1"
+            />
+            <span class="speed-value">5</span>
+          </div>
+        </div>
+        <div class="slider-sub-container size-container">
+          <span class="slider-text size-text">Array Size</span>
+          <div class="wrapper">
+            <input
+              type="range"
+              id="speed-slider"
+              class="slider"
+              min="20"
+              max="100"
+              value="50"
+              step="1"
+            />
+            <span class="size-value">100</span>
+          </div>
         </div>
       </div>
       <div class="action-buttons">
-        <button>New Arrays</button>
-        <button>Let's Sort!</button>
+        <button class="new-btn">
+          New Arrays
+          <img class="cycle-btn" src="images/cycle.svg" alt="Cycle icon" />
+        </button>
+        <button class="sort-btn">Let's Sort!</button>
       </div>
     </nav>
   </body>
