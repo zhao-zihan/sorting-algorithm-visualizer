@@ -83,7 +83,7 @@ span {
 
 .action-buttons {
   display: flex;
-  gap: rem;
+  gap: 2rem;
   max-height: 5.5rem;
 }
 
