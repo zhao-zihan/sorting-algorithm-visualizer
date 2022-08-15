@@ -46,6 +46,7 @@ span {
 }
 
 .algos {
+  font-family: inherit;
   background-color: #ff6b6b;
   width: 12rem;
   height: 3rem;
@@ -95,6 +96,7 @@ span {
 }
 
 .new-btn {
+  font-family: inherit;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -104,11 +106,12 @@ span {
   background-color: rgb(201, 197, 197);
 }
 
-.cycle-btn {
+.cycle-icon {
   height: 18px;
 }
 
 .sort-btn {
+  font-family: inherit;
   background-color: #82c91e;
 }
 
