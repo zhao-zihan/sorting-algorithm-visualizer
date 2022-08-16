@@ -17,18 +17,18 @@ const selectionSort = function () {
       animation(bars[j], barValue[j], "#96f2d7", ++interval);
     }
 
-    // defined in bubble sort
-    swap(barValue, i, minIdx);
-
     // mark the two bars that will be swapped
     animation(bars[minIdx], barValue[minIdx], "#ffd43b", ++interval);
     animation(bars[i], barValue[i], "#ffd43b", interval);
+
+    // defined in bubble sort
+    swap(barValue, i, minIdx);
 
     // restore color for the bar that was previously at the min index position
     animation(bars[minIdx], barValue[minIdx], "#96f2d7", ++interval);
 
     // mark the min index position node as completed
-    animation(bars[i], barValue[i], "#228be6", ++interval);
+    animation(bars[i], barValue[i], "#228be6", interval);
   }
 
   // eventually the loop ended where i === n - 1
