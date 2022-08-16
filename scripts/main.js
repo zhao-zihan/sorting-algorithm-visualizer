@@ -132,7 +132,7 @@ const setSpeed = function () {
   const selectedSpeed = +algoSpeedEl.value;
   switch (selectedSpeed) {
     case 1:
-      delay = 2000;
+      delay = 3000;
       break;
     case 2:
       delay = 1000;
@@ -144,7 +144,7 @@ const setSpeed = function () {
       delay = 100;
       break;
     case 5:
-      delay = 20;
+      delay = 25;
       break;
   }
   delay /= arraySize / 2;
