@@ -168,24 +168,36 @@ arraySizeEl.addEventListener("input", setSpeed);
 setSpeed();
 
 const startSorting = function () {
+  // enable following code for testing
+  // let barCopy = [];
+  // for (let i = 0; i < barValue.length; i++) {
+  //   barCopy[i] = barValue[i];
+  // }
+  // barCopy.slice().sort();
   switch (algoSelected) {
     case "default":
       break;
     case "bubble":
       bubbleSort();
+      // console.log(arraysAreEqual(barCopy, barValue));
       break;
     case "selection":
       selectionSort();
+      // console.log(arraysAreEqual(barCopy, barValue));
       break;
     case "insertion":
       insertionSort();
+      // console.log(arraysAreEqual(barCopy, barValue));
       break;
     case "merge":
       mergeSort(0, arraySize - 1);
+      // console.log(arraysAreEqual(barCopy, barValue));
       interval = 0;
       break;
     case "quick":
-      quickSort();
+      quickSort(0, arraySize);
+      // console.log(arraysAreEqual(barCopy, barValue));
+      interval = 0;
       break;
     case "heap":
       heapSort();
@@ -194,3 +206,24 @@ const startSorting = function () {
 };
 
 letsSortBtnEl.addEventListener("click", startSorting);
+
+/**
+ * This function is for testing custom sorting algorithms
+ *
+ * @param {*} array1 - bar value copy array
+ * @param {*} array2 - bar value array after running custom sorting algo
+ * @returns
+ */
+function arraysAreEqual(array1, array2) {
+  array1 = array1.slice().sort(function (a, b) {
+    return a - b;
+  });
+  if (array1.length !== array2.length) return false;
+  for (let x = 0; x < array1.length; x++) {
+    if (array1[x] !== array2[x]) {
+      console.log(array1[x] + ", " + array2[x]);
+      return false;
+    }
+  }
+  return true;
+}
