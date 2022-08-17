@@ -1,3 +1,5 @@
+"use strict";
+
 const swap = function (values, position1, position2) {
   const temp = values[position1];
   values[position1] = values[position2];
@@ -17,17 +19,19 @@ const bubbleSort = function () {
 
         swap(barValue, j, j + 1);
 
-        // yellow means swap completed
+        // mark swapping completed
         animation(bars[j], barValue[j], "#ffd43b", ++interval);
         animation(bars[j + 1], barValue[j + 1], "#ffd43b", interval);
       }
 
-      // only need restore color for the shorter bar
+      // restore swapped bars' color
       animation(bars[j], barValue[j], "#96f2d7", ++interval);
+      animation(bars[j + 1], barValue[j + 1], "#96f2d7", interval);
     }
 
     // blue means bar has been moved to the correct position
-    animation(bars[j], barValue[j], "#228be6", ++interval);
+    // immediately mark blue as the current largest bar has been moved to the very end
+    animation(bars[j], barValue[j], "#228be6", interval++);
   }
 
   // the last bar left will be the first bar in the array
