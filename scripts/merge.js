@@ -1,3 +1,5 @@
+"use strict";
+
 interval = 0;
 
 const merge = function (left, mid, right) {
