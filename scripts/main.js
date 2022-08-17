@@ -132,23 +132,22 @@ const setSpeed = function () {
   const selectedSpeed = +algoSpeedEl.value;
   switch (selectedSpeed) {
     case 1:
-      delay = 3000;
+      delay = 5000;
       break;
     case 2:
-      delay = 1000;
+      delay = 2500;
       break;
     case 3:
-      delay = 500;
+      delay = 1000;
       break;
     case 4:
-      delay = 100;
+      delay = 500;
       break;
     case 5:
-      delay = 25;
+      delay = 100;
       break;
   }
-  delay /= arraySize / 2;
-  console.log(delay);
+  delay /= arraySize / 3;
 };
 
 const animation = function (bar, height, color, interval) {
@@ -174,7 +173,6 @@ const startSorting = function () {
       break;
     case "bubble":
       bubbleSort();
-      console.log("bubble complete");
       break;
     case "selection":
       selectionSort();
@@ -183,7 +181,8 @@ const startSorting = function () {
       insertionSort();
       break;
     case "merge":
-      mergeSort();
+      mergeSort(0, arraySize - 1);
+      interval = 0;
       break;
     case "quick":
       quickSort();
