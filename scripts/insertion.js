@@ -1,3 +1,9 @@
+/**
+ * #ff6b6b insertion value
+ * #ffd43b correct insertion position
+ * #228be6 node sorted
+ */
+
 "use strict";
 
 interval = 0;
@@ -13,7 +19,7 @@ const insertionSort = function () {
     // if the key value is greater than its previous bar value
     // then we are at the correct position to insert the key
     if (barValue[i] >= barValue[j]) {
-      // mark this index is the correct position with color yellow
+      // mark the correct position with color yellow
       animation(bars[i], key, "#ffd43b", ++interval);
 
       // if the key is not at the initial position which is i === 1
