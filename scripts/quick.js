@@ -1,3 +1,13 @@
+/**
+ * #ffd43b pivot
+ * #15aabf left pointer
+ * #ff6b6b right pointer
+ * #da77f2 swap required
+ * #69db7c swap completed
+ * #faa2c1 correct position for pivot
+ * #228be6 node sorted
+ */
+
 "use strict";
 
 interval = 0;
@@ -16,7 +26,7 @@ const partition = function (left, right) {
     do {
       i++;
       if (i >= j) break;
-      animation(bars[i], barValue[i], "#ff6b6b", interval++);
+      animation(bars[i], barValue[i], "#15aabf", interval++);
       if (barValue[i] > pivot) {
         break;
       }
@@ -42,12 +52,13 @@ const partition = function (left, right) {
 
       swap(barValue, i, j);
 
-      animation(bars[i], barValue[i], "#228be6", interval);
-      animation(bars[j], barValue[j], "#228be6", interval++);
+      animation(bars[i], barValue[i], "#69db7c", interval);
+      animation(bars[j], barValue[j], "#69db7c", interval++);
       animation(bars[i], barValue[i], "#96f2d7", interval);
       animation(bars[j], barValue[j], "#96f2d7", interval++);
     }
   }
+  animation(bars[j], barValue[j], "#faa2c1", interval++);
 
   // swap pivot to its correct position
   animation(bars[left], barValue[left], "#da77f2", interval);
