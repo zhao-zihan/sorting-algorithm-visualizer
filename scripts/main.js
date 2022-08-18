@@ -19,6 +19,7 @@ const newArrayBtnEl = document.querySelector(".new-btn");
 const letsSortBtnEl = document.querySelector(".sort-btn");
 
 const explanationsEl = document.querySelectorAll(".explanation");
+const tracersEl = document.querySelectorAll(".tracer");
 
 /**
  * Set text content on the left complexity section
@@ -39,7 +40,7 @@ const displayComplexityText = function (tWorst, tAver, tBest, sWorst) {
 /**
  * This function will display colors explanation for the algo we selected
  *
- * @param {*} clickedClass - the algo that we want to display color explanation for
+ * @param {*} clickedAlgo - the algo that we want to display color explanation for
  */
 const displayColorsForClicked = function (clickedAlgo) {
   for (let i = 0; i < explanationsEl.length; i++) {
@@ -47,6 +48,16 @@ const displayColorsForClicked = function (clickedAlgo) {
       explanationsEl[i].classList.remove("hidden");
     } else {
       explanationsEl[i].classList.add("hidden");
+    }
+  }
+};
+
+const displayTracerForClicked = function (clickedAlgo) {
+  for (let i = 0; i < tracersEl.length; i++) {
+    if (`${clickedAlgo}-trace` === tracersEl[i].classList[1]) {
+      tracersEl[i].classList.remove("hidden");
+    } else {
+      tracersEl[i].classList.add("hidden");
     }
   }
 };
@@ -61,36 +72,43 @@ const displayComplexities = function () {
   switch (algoSelected) {
     case "default":
       displayColorsForClicked("default");
+      displayTracerForClicked("default");
       displayComplexityText("", "", "", "");
       generateNewArray();
       break;
     case "bubble":
       displayColorsForClicked("bubble");
+      displayTracerForClicked("bubble");
       displayComplexityText("O(n^2)", "O(n^2)", "O(n)", "O(1)");
       generateNewArray();
       break;
     case "selection":
       displayColorsForClicked("selection");
+      displayTracerForClicked("selection");
       displayComplexityText("O(n^2)", "O(n^2)", "O(n^2)", "O(1)");
       generateNewArray();
       break;
     case "insertion":
       displayColorsForClicked("insertion");
+      displayTracerForClicked("insertion");
       displayComplexityText("O(n^2)", "O(n^2)", "O(n)", "O(1)");
       generateNewArray();
       break;
     case "merge":
       displayColorsForClicked("merge");
+      displayTracerForClicked("merge");
       displayComplexityText("O(nlog(n))", "O(nlog(n))", "O(nlog(n))", "O(n)");
       generateNewArray();
       break;
     case "quick":
       displayColorsForClicked("quick");
+      displayTracerForClicked("quick");
       displayComplexityText("O(n^2)", "O(nlog(n))", "O(nlog(n))", "O(nlog(n))");
       generateNewArray();
       break;
     case "heap":
       displayColorsForClicked("heap");
+      displayTracerForClicked("heap");
       displayComplexityText("O(nlog(n))", "O(nlog(n))", "O(nlog(n))", "O(1)");
       generateNewArray();
       break;
@@ -182,12 +200,43 @@ const setSpeed = function () {
   delay /= arraySize / 3;
 };
 
+/**
+ * This function will update bar height and color once we change it
+ *
+ * @param {*} bar - the bar we want to update shape and color
+ * @param {*} height - the height we assign to the bar
+ * @param {*} color - the background color we assign to the bar
+ * @param {*} interval - time waited to trigger the animation
+ */
 const animation = function (bar, height, color, interval) {
   window.setTimeout(() => {
     bar.style.backgroundColor = `${color}`;
     bar.style.height = `${height}%`;
   }, interval * delay);
   // all function are called at the same time, have to create intervals to make animation happen
+};
+
+/**
+ * This function will update code tracer
+ *
+ * @param {*} paragraph - the line of code we are tracing
+ * @param {*} interval - time waited to trigger the animation
+ */
+
+const tracerAnimation = function (paragraph, running, tracerInterval, stop) {
+  window.setTimeout(() => {
+    if (running) {
+      var backgroundColor = "#495057";
+      var textColor = "#e7f5ff";
+    } else {
+      backgroundColor = "#d0bfff";
+      textColor = "#000";
+    }
+    document.querySelector(
+      `.${paragraph}`
+    ).style.backgroundColor = `${backgroundColor}`;
+    document.querySelector(`.${paragraph}`).style.color = `${textColor}`;
+  }, tracerInterval * delay);
 };
 
 /**
@@ -225,11 +274,13 @@ const startSorting = function () {
       mergeSort(0, arraySize - 1);
       // console.log(arraysAreEqual(barCopy, barValue));
       interval = 0;
+      tracerInterval = 0;
       break;
     case "quick":
       quickSort(0, arraySize);
       // console.log(arraysAreEqual(barCopy, barValue));
       interval = 0;
+      tracerInterval = 0;
       break;
     case "heap":
       heapSort();
