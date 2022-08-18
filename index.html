@@ -93,26 +93,179 @@
       </div>
     </nav>
     <main class="visualizer-container">
-      <div class="complexity">
-        <div class="time-complexity">
-          <h2 class="complexity-title">TIME COMPLEXITY</h2>
-          <div class="time-worst">
-            Worst Case:
-            <span class="time-worst-text"></span>
+      <div class="complexity-colors">
+        <div class="complexity">
+          <div class="time-complexity">
+            <h2 class="complexity-title">TIME COMPLEXITY</h2>
+            <div class="time-worst">
+              Worst Case:
+              <span class="time-worst-text"></span>
+            </div>
+            <div class="time-average">
+              Average Case:
+              <span class="time-average-text"></span>
+            </div>
+            <div class="time-best">
+              Best Case:
+              <span class="time-best-text"></span>
+            </div>
           </div>
-          <div class="time-average">
-            Average Case:
-            <span class="time-average-text"></span>
-          </div>
-          <div class="time-best">
-            Best Case:
-            <span class="time-best-text"></span>
+          <div class="space-complexity">
+            <h2 class="complexity-title">SPACE COMPLEXITY</h2>
+            <div class="space-worst">
+              Worst Case: <span class="space-worst-text"></span>
+            </div>
           </div>
         </div>
-        <div class="space-complexity">
-          <h2 class="complexity-title">SPACE COMPLEXITY</h2>
-          <div class="space-worst">
-            Worst Case: <span class="space-worst-text"></span>
+        <div class="colors-explained">
+          <h2 class="colors-title">
+            <span class="colors-letter letter-c">c</span>
+            <span class="colors-letter letter-o--1">o</span>
+            <span class="colors-letter letter-l">l</span>
+            <span class="colors-letter letter-o--2">o</span>
+            <span class="colors-letter letter-r">r</span>
+            <span class="colors-letter letter-s">s</span>
+            Explained
+          </h2>
+          <div class="explanation bubble-colors hidden">
+            <ul class="colors-list">
+              <li>
+                <div class="color-box color-red"></div>
+                traversing pointer
+              </li>
+              <li>
+                <div class="color-box color-violet"></div>
+                swap required
+              </li>
+              <li>
+                <div class="color-box color-green"></div>
+                swap completed
+              </li>
+              <li>
+                <div class="color-box color-blue"></div>
+                node sorted
+              </li>
+            </ul>
+          </div>
+          <div class="explanation selection-colors hidden">
+            <ul class="colors-list">
+              <li>
+                <div class="color-box color-yellow"></div>
+                min value position
+              </li>
+              <li>
+                <div class="color-box color-red"></div>
+                traversing pointer
+              </li>
+              <li>
+                <div class="color-box color-cyan"></div>
+                current min value
+              </li>
+              <li>
+                <div class="color-box color-violet"></div>
+                swap required
+              </li>
+              <li>
+                <div class="color-box color-green"></div>
+                swap completed
+              </li>
+              <li>
+                <div class="color-box color-blue"></div>
+                node sorted
+              </li>
+            </ul>
+          </div>
+          <div class="explanation insertion-colors hidden">
+            <ul class="colors-list">
+              <li>
+                <div class="color-box color-red"></div>
+                insertion value
+              </li>
+              <li>
+                <div class="color-box color-yellow"></div>
+                correct insertion position
+              </li>
+              <li>
+                <div class="color-box color-blue"></div>
+                node sorted
+              </li>
+            </ul>
+          </div>
+          <div class="explanation merge-colors hidden">
+            <ul class="colors-list">
+              <li>
+                <div class="color-box color-yellow"></div>
+                partition point
+              </li>
+              <li>
+                <div class="color-box color-red"></div>
+                nodes being merged
+              </li>
+              <li>
+                <div class="color-box color-blue"></div>
+                merge completed (sorted)
+              </li>
+            </ul>
+          </div>
+          <div class="explanation quick-colors hidden">
+            <ul class="colors-list">
+              <li>
+                <div class="color-box color-yellow"></div>
+                pivot
+              </li>
+              <li>
+                <div class="color-box color-cyan"></div>
+                left pointer
+              </li>
+              <li>
+                <div class="color-box color-red"></div>
+                right pointer
+              </li>
+              <li>
+                <div class="color-box color-violet"></div>
+                swap required
+              </li>
+              <li>
+                <div class="color-box color-green"></div>
+                swap completed
+              </li>
+              <li>
+                <div class="color-box color-pink"></div>
+                correct position for pivot
+              </li>
+              <li>
+                <div class="color-box color-blue"></div>
+                node sorted
+              </li>
+            </ul>
+          </div>
+          <div class="explanation heap-colors hidden">
+            <ul class="colors-list">
+              <li>
+                <div class="color-box color-yellow"></div>
+                parent node
+              </li>
+              <li>
+                <div class="color-box color-cyan"></div>
+                left child
+              </li>
+              <li>
+                <div class="color-box color-red"></div>
+                right child
+              </li>
+              <li>
+                <div class="color-box color-violet"></div>
+                swap required
+              </li>
+              <li>
+                <div class="color-box color-green"></div>
+                swap completed
+              </li>
+              <li>
+                <div class="color-box color-blue"></div>
+                node sorted
+              </li>
+            </ul>
           </div>
         </div>
       </div>
