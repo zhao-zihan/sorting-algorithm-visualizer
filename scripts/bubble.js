@@ -1,3 +1,10 @@
+/**
+ * #ff6b6b traversing pointer
+ * #da77f2 swap required
+ * #69db7c swap completed
+ * #228be6 node sorted
+ */
+
 "use strict";
 
 const swap = function (values, position1, position2) {
@@ -14,14 +21,14 @@ const bubbleSort = function () {
       animation(bars[j], barValue[j], "#ff6b6b", interval);
       if (barValue[j] > barValue[j + 1]) {
         // mark bars that we are going to swap
-        animation(bars[j], barValue[j], "#ffd43b", ++interval);
-        animation(bars[j + 1], barValue[j + 1], "#ffd43b", interval);
+        animation(bars[j], barValue[j], "#da77f2", ++interval);
+        animation(bars[j + 1], barValue[j + 1], "#da77f2", interval);
 
         swap(barValue, j, j + 1);
 
         // mark swapping completed
-        animation(bars[j], barValue[j], "#ffd43b", ++interval);
-        animation(bars[j + 1], barValue[j + 1], "#ffd43b", interval);
+        animation(bars[j], barValue[j], "#69db7c", ++interval);
+        animation(bars[j + 1], barValue[j + 1], "#69db7c", interval);
       }
 
       // restore swapped bars' color
