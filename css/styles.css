@@ -129,11 +129,11 @@ span {
 }
 
 .complexity {
-  margin-top: 2rem;
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .complexity-title {
@@ -258,7 +258,7 @@ span {
 }
 
 .code-trace {
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding: 0 0 0 3rem;
 }
 
@@ -273,7 +273,7 @@ span {
   flex-direction: column;
   gap: 0.5rem;
   background-color: #d0bfff;
-  width: 85%;
+  width: 90%;
   padding: 1rem 0;
   border-radius: 8px;
 }
