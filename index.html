@@ -270,7 +270,128 @@
         </div>
       </div>
       <div class="arrays-container"></div>
-      <div class="code-trace"></div>
+      <div class="code-trace">
+        <h2 class="trace-title">code trace</h2>
+        <div class="tracer bubble-trace hidden">
+          <p class="bubble-for-loop">for each unsorted element i</p>
+          <p class="bubble-if-comparison">
+            &nbsp;&nbsp;&nbsp;&nbsp;if i > rightNeighbor
+          </p>
+          <p class="bubble-swap">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(i,
+            rightNeighbor)
+          </p>
+        </div>
+        <div class="tracer selection-trace hidden">
+          <p class="selection-set-position">
+            set i = current position for min value
+          </p>
+          <p class="selection-for-loop">
+            &nbsp;&nbsp;&nbsp;&nbsp;for each unsorted element j
+          </p>
+          <p class="selection-if-comparison">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if j < minimum
+          </p>
+          <p class="selection-set-minimum">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mark
+            j as new minimum
+          </p>
+          <p class="selection-swap">swap(i, j), i++</p>
+        </div>
+        <div class="tracer insertion-trace hidden">
+          <p class="insertion-for-loop-unsorted">for each unsorted element i</p>
+          <p class="insertion-for-loop-sorted">
+            &nbsp;&nbsp;&nbsp;&nbsp;for j = previous sorted element
+          </p>
+          <p class="insertion-if-comparison">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if i > j
+          </p>
+          <p class="insertion-move">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;move
+            j one step to the right
+          </p>
+          <p class="insertion-insert">insert i</p>
+        </div>
+        <div class="tracer merge-trace hidden">
+          <p class="merge-partition">
+            split elements into partitions by mid point
+          </p>
+          <p class="merge-merge">recursively merge adjacent partitions</p>
+          <p class="merge-for-loop">
+            &nbsp;&nbsp;&nbsp;&nbsp;for leftPartitionElement and
+            rightPartitionElement
+          </p>
+          <p class="merge-if-comparison">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if
+            (leftPartitionElement <= rightPartitionElement)
+          </p>
+          <p class="merge-merge-left">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;merge
+            leftPartitionElement
+          </p>
+          <p class="merge-merge-right">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else: merge
+            rightPartitionElement
+          </p>
+          <p class="merge-copy-back">
+            copy merged elements back to original array
+          </p>
+        </div>
+        <div class="tracer quick-trace hidden">
+          <p class="quick-for-loop">for each unsorted partition</p>
+          <p class="quick-set-pivot">&nbsp;&nbsp;&nbsp;&nbsp;set first element as pivot</p>
+          <p class="quick-while-loop">
+            &nbsp;&nbsp;&nbsp;&nbsp;while (leftPointer < rightPointer)
+          </p>
+          <p class="quick-left-pointer">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (leftElement <= pivot) </br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leftPointer++
+          </p>
+          <p class="quick-right-pointer">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (rightElement > pivot) </br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rightPointer--;
+          </p>
+          <p class="quick-swap-pointer">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(leftElement, rightElement)
+          </p>
+          <p class="quick-swap-pivot">
+            &nbsp;&nbsp;&nbsp;&nbsp;swap(pivot, rightElement)
+          </p>
+        </div>
+        <div class="tracer heap-trace hidden">
+          <p class="heap-heapify-for-loop">for each none-leaf element</p>
+          <p class="heap-max-heap">
+            &nbsp;&nbsp;&nbsp;&nbsp;heapify recursively to create max heap
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;heapify(arraySize, element)
+          </p>
+          <p class="heap-largest-for-loop">
+            &nbsp;&nbsp;&nbsp;&nbsp;for each element in max heap
+          </p>
+          <p class="heap-swap-largest">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(firstElement, tailElement)
+          </p>
+          <p class="heap-heapify-largest">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heapify(arraySize, 0)
+          </p>
+          <p></p>
+
+          <p class="heap-heapify">heapify(arraySize, parentNode)</p>
+          <p class="heap-check-left">
+            &nbsp;&nbsp;&nbsp;&nbsp;if (leftChild > parentNode) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;largestNode = leftChild
+          </p>
+          <p class="heap-check-right">
+            &nbsp;&nbsp;&nbsp;&nbsp;if (rightChild > parentNode) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;largestNode = rightChild
+          </p>
+          <p class="heap-swap-parent">
+            &nbsp;&nbsp;&nbsp;&nbsp;swap(parentNode, largestNode)
+          </p>
+          <p class="heap-heapify-recursively">
+            &nbsp;&nbsp;&nbsp;&nbsp;heapify(arraySize, largestNode)
+          </p>
+        </div>
+      </div>
     </main>
     <script src="scripts/main.js"></script>
     <script src="scripts/bubble.js"></script>
