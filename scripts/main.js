@@ -17,6 +17,7 @@ const sizeValueEl = document.querySelector(".size-value");
 
 const newArrayBtnEl = document.querySelector(".new-btn");
 const letsSortBtnEl = document.querySelector(".sort-btn");
+const stopBtnEL = document.querySelector(".stop-btn");
 
 const explanationsEl = document.querySelectorAll(".explanation");
 const tracersEl = document.querySelectorAll(".tracer");
@@ -289,6 +290,10 @@ const startSorting = function () {
 };
 
 letsSortBtnEl.addEventListener("click", startSorting);
+
+stopBtnEL.addEventListener("click", function () {
+  window.location.reload();
+});
 
 /**
  * This function is for testing custom sorting algorithms
