@@ -119,6 +119,23 @@ span {
   background-color: #65ab03;
 }
 
+.stop-btn {
+  background-color: inherit;
+  padding: 0 !important;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  transition: 0.2s all;
+}
+
+.stop-btn:active {
+  transform: scale(0.98);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.stop-icon {
+  height: 50px;
+}
+
 .visualizer-container {
   display: grid;
   grid-template-columns: 17% 60% 23%;
