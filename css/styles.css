@@ -124,12 +124,16 @@ span {
   grid-template-columns: 20% 60% 20%;
 }
 
-.complexity {
-  margin-top: 5rem;
+.complexity-colors {
   padding: 0 3rem;
+}
+
+.complexity {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .complexity-title {
@@ -170,6 +174,91 @@ span {
 
 .space-worst {
   color: #63e6be;
+}
+
+.colors-title {
+  text-transform: uppercase;
+  color: #e7f5ff;
+  margin-bottom: 1rem;
+}
+
+.colors-letter {
+  margin-left: -5px;
+}
+
+.letter-c {
+  color: #ffd43b;
+}
+
+.letter-o--1 {
+  color: #15aabf;
+}
+
+.letter-l {
+  color: #ff6b6b;
+}
+
+.letter-o--2 {
+  color: #da77f2;
+}
+
+.letter-r {
+  color: #69db7c;
+}
+
+.letter-s {
+  color: #228be6;
+}
+
+.colors-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #d3f9d8;
+}
+
+.colors-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-box {
+  height: 15px;
+  width: 15px;
+}
+
+.color-red {
+  background-color: #ff6b6b;
+}
+
+.color-yellow {
+  background-color: #ffd43b;
+}
+
+.color-violet {
+  background-color: #da77f2;
+}
+
+.color-green {
+  background-color: #69db7c;
+}
+
+.color-cyan {
+  background-color: #15aabf;
+}
+
+.color-pink {
+  background-color: #faa2c1;
+}
+
+.color-blue {
+  background-color: #228be6;
+}
+
+.hidden {
+  display: none;
 }
 
 .arrays-container {
