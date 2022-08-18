@@ -1,24 +1,31 @@
 "use strict";
 
+// all the algo selections
 const algorithmsEl = document.getElementById("algos-selections");
 
+// elements for complexity table
 const timeWorstCompEl = document.querySelector(".time-worst-text");
 const timeAverCompEl = document.querySelector(".time-average-text");
 const timeBestCompEl = document.querySelector(".time-best-text");
 const spaceWorstCompEl = document.querySelector(".space-worst-text");
 
+// elements for sliders
 const arraySizeEl = document.getElementById("size-slider");
 const algoSpeedEl = document.getElementById("speed-slider");
 
+// array container element
 const arrayContainerEl = document.querySelector(".arrays-container");
 
+// texts next to sliders
 const speedValueEl = document.querySelector(".speed-value");
 const sizeValueEl = document.querySelector(".size-value");
 
+// the three buttons
 const newArrayBtnEl = document.querySelector(".new-btn");
 const letsSortBtnEl = document.querySelector(".sort-btn");
 const stopBtnEL = document.querySelector(".stop-btn");
 
+// child elements for colors explained and code trace
 const explanationsEl = document.querySelectorAll(".explanation");
 const tracersEl = document.querySelectorAll(".tracer");
 
@@ -53,6 +60,11 @@ const displayColorsForClicked = function (clickedAlgo) {
   }
 };
 
+/**
+ * This function will display code trace for the algo we selected
+ *
+ * @param {*} clickedAlgo - the algo that we want to display code trace for
+ */
 const displayTracerForClicked = function (clickedAlgo) {
   for (let i = 0; i < tracersEl.length; i++) {
     if (`${clickedAlgo}-trace` === tracersEl[i].classList[1]) {
@@ -62,13 +74,36 @@ const displayTracerForClicked = function (clickedAlgo) {
     }
   }
 };
+/**
+ * This function will disable all button except the stop button
+ */
+const disableButtons = function () {
+  algorithmsEl.disabled = true;
+  arraySizeEl.disabled = true;
+  algoSpeedEl.disabled = true;
+  newArrayBtnEl.disabled = true;
+  letsSortBtnEl.disabled = true;
+};
+
+/**
+ * This function will enable all buttons once algo finishes running
+ */
+const enableButtons = function () {
+  window.setTimeout(() => {
+    algorithmsEl.disabled = false;
+    arraySizeEl.disabled = false;
+    algoSpeedEl.disabled = false;
+    newArrayBtnEl.disabled = false;
+    letsSortBtnEl.disabled = false;
+  }, interval * delay);
+};
 
 /**
  * Set complexity details for each algorithm when selected
  * Display colors explanation for each algorithm when selected
  */
 let algoSelected;
-const displayComplexities = function () {
+const displayInfos = function () {
   algoSelected = this.value;
   switch (algoSelected) {
     case "default":
@@ -116,8 +151,10 @@ const displayComplexities = function () {
   }
 };
 
-algorithmsEl.addEventListener("change", displayComplexities);
+// once user selected algo, display all the information
+algorithmsEl.addEventListener("change", displayInfos);
 
+// initialize arrays for bar values and bars
 let arraySize = arraySizeEl.value;
 const barValue = [];
 const bars = [];
@@ -218,7 +255,7 @@ const animation = function (bar, height, color, interval) {
 };
 
 /**
- * This function will update code tracer
+ * This function will update code trace
  *
  * @param {*} paragraph - the line of code we are tracing
  * @param {*} interval - time waited to trigger the animation
@@ -246,7 +283,7 @@ const tracerAnimation = function (paragraph, running, tracerInterval, stop) {
 algoSpeedEl.addEventListener("input", setSpeed);
 arraySizeEl.addEventListener("input", setSpeed);
 // immediately calling setSpeed function
-// otherwise no speed will be set for the default value
+// otherwise no speed will be set for the default speed value
 setSpeed();
 
 const startSorting = function () {
@@ -260,37 +297,52 @@ const startSorting = function () {
     case "default":
       break;
     case "bubble":
+      disableButtons();
       bubbleSort();
       // console.log(arraysAreEqual(barCopy, barValue));
       break;
     case "selection":
+      disableButtons();
       selectionSort();
+
       // console.log(arraysAreEqual(barCopy, barValue));
       break;
     case "insertion":
+      disableButtons();
       insertionSort();
+
       // console.log(arraysAreEqual(barCopy, barValue));
       break;
     case "merge":
+      disableButtons();
       mergeSort(0, arraySize - 1);
+      enableButtons();
+
       // console.log(arraysAreEqual(barCopy, barValue));
       interval = 0;
       tracerInterval = 0;
       break;
     case "quick":
+      disableButtons();
       quickSort(0, arraySize);
+      enableButtons();
+
       // console.log(arraysAreEqual(barCopy, barValue));
       interval = 0;
       tracerInterval = 0;
       break;
     case "heap":
+      disableButtons();
       heapSort();
+
+      // console.log(arraysAreEqual(barCopy, barValue));
       break;
   }
 };
 
 letsSortBtnEl.addEventListener("click", startSorting);
 
+// reload the page when stop button is pressed
 stopBtnEL.addEventListener("click", function () {
   window.location.reload();
 });
