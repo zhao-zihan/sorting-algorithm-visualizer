@@ -33,6 +33,14 @@ const selectionSort = function () {
       animation(bars[j], barValue[j], "#96f2d7", interval);
     }
 
+    // if the min value is already at its correct position
+    // then simply mark it as sorted
+    if (minIdx === i) {
+      animation(bars[minIdx], barValue[minIdx], "#15aabf", interval);
+      animation(bars[minIdx], barValue[minIdx], "#228be6", ++interval);
+      continue;
+    }
+
     // mark the two bars that will be swapped
     animation(bars[minIdx], barValue[minIdx], "#da77f2", interval);
     animation(bars[i], barValue[i], "#da77f2", interval++);
