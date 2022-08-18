@@ -10,6 +10,7 @@
 "use strict";
 
 interval = 0;
+tracerInterval = 0;
 
 const heapify = function (heapSize, index) {
   let largest = index;
@@ -18,6 +19,7 @@ const heapify = function (heapSize, index) {
 
   // mark the current parent node in yellow
   animation(bars[index], barValue[index], "#ffd43b", interval++);
+  tracerInterval++;
 
   // update largest pointer by checking left child
   if (left < heapSize && barValue[left] > barValue[largest]) {
@@ -26,6 +28,9 @@ const heapify = function (heapSize, index) {
     }
     largest = left;
     animation(bars[left], barValue[left], "#15aabf", interval++);
+
+    tracerAnimation("heap-check-left", true, tracerInterval++);
+    tracerAnimation("heap-check-left", false, tracerInterval);
   }
 
   // update largest pointer by checking right child
@@ -35,12 +40,18 @@ const heapify = function (heapSize, index) {
     }
     largest = right;
     animation(bars[right], barValue[right], "#ff6b6b", interval++);
+
+    tracerAnimation("heap-check-right", true, tracerInterval++);
+    tracerAnimation("heap-check-right", false, tracerInterval);
   }
 
   // swap parent node with its largest child
   if (largest !== index) {
     animation(bars[largest], barValue[largest], "#da77f2", interval);
     animation(bars[index], barValue[index], "#da77f2", interval++);
+
+    tracerAnimation("heap-swap-parent", true, tracerInterval++);
+    tracerInterval++;
 
     swap(barValue, index, largest);
 
@@ -49,8 +60,13 @@ const heapify = function (heapSize, index) {
     animation(bars[largest], barValue[largest], "#96f2d7", interval);
     animation(bars[index], barValue[index], "#96f2d7", interval);
 
+    tracerAnimation("heap-swap-parent", false, tracerInterval);
+
     // repeat recursively to ensure largest node is on top
     heapify(heapSize, largest);
+
+    tracerAnimation("heap-heapify-recursively", true, tracerInterval++);
+    tracerAnimation("heap-heapify-recursively", false, tracerInterval--);
   }
 
   animation(bars[index], barValue[index], "#96f2d7", interval);
@@ -62,6 +78,9 @@ const heapSort = function () {
   // create a max heap using heapify
   for (let i = startNode; i >= 0; i--) {
     heapify(arraySize, i);
+
+    tracerAnimation("heap-max-heap", true, tracerInterval++);
+    tracerAnimation("heap-max-heap", false, tracerInterval--);
   }
 
   // remove largest node to the end of the array
@@ -69,17 +88,26 @@ const heapSort = function () {
     animation(bars[0], barValue[0], "#da77f2", interval);
     animation(bars[j], barValue[j], "#da77f2", interval++);
 
+    tracerAnimation("heap-swap-largest", true, tracerInterval++);
+    tracerInterval++;
+
     swap(barValue, 0, j);
 
     animation(bars[0], barValue[0], "#96f2d7", interval);
     // all nodes at the tail are sorted
     animation(bars[j], barValue[j], "#228be6", interval++);
 
+    tracerAnimation("heap-swap-largest", false, tracerInterval);
+
     // again, make sure largest node is always on top
     heapify(j, 0);
+
+    tracerAnimation("heap-heapify-largest", true, tracerInterval++);
+    tracerAnimation("heap-heapify-largest", false, tracerInterval--);
   }
 
   animation(bars[0], barValue[0], "#228be6", interval++);
 
   interval = 0;
+  tracerInterval = 0;
 };
