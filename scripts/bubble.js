@@ -54,6 +54,9 @@ const bubbleSort = function () {
   animation(bars[0], barValue[0], "#228be6", ++interval);
   tracerAnimation("bubble-for-loop", true, tracerInterval++);
   tracerAnimation("bubble-for-loop", false, tracerInterval);
+
+  enableButtons();
+
   interval = 0;
   tracerInterval = 0;
 };

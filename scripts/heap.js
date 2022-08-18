@@ -108,6 +108,8 @@ const heapSort = function () {
 
   animation(bars[0], barValue[0], "#228be6", interval++);
 
+  enableButtons();
+
   interval = 0;
   tracerInterval = 0;
 };

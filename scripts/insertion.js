@@ -75,6 +75,9 @@ const insertionSort = function () {
     // mark position with color blue to show completion of insertion
     animation(bars[j + 1], key, "#228be6", ++interval);
   }
+
+  enableButtons();
+
   interval = 0;
   tracerInterval = 0;
 };

@@ -88,6 +88,9 @@ const selectionSort = function () {
 
   // eventually the loop ended where i === n - 1
   animation(bars[i], barValue[i], "#228be6", interval++);
+
+  enableButtons();
+
   interval = 0;
   tracerInterval = 0;
 };
