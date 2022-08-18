@@ -121,7 +121,7 @@ span {
 
 .visualizer-container {
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 17% 60% 23%;
 }
 
 .complexity-colors {
@@ -255,6 +255,31 @@ span {
 
 .color-blue {
   background-color: #228be6;
+}
+
+.code-trace {
+  margin-top: 2rem;
+  padding: 0 0 0 3rem;
+}
+
+.trace-title {
+  text-transform: uppercase;
+  color: #e7f5ff;
+  margin-bottom: 1rem;
+}
+
+.tracer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #d0bfff;
+  width: 85%;
+  padding: 1rem 0;
+  border-radius: 8px;
+}
+
+.tracer p {
+  padding: 0.2rem 1rem;
 }
 
 .hidden {
