@@ -60,6 +60,13 @@ const partition = function (left, right) {
   }
   animation(bars[j], barValue[j], "#faa2c1", interval++);
 
+  // if pivot is already at its correct position
+  // then simply mark it as sorted and return its position
+  if (left === j) {
+    animation(bars[j], barValue[j], "#228be6", interval++);
+    return j;
+  }
+
   // swap pivot to its correct position
   animation(bars[left], barValue[left], "#da77f2", interval);
   animation(bars[j], barValue[j], "#da77f2", interval++);
