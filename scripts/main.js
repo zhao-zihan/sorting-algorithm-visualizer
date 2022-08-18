@@ -18,6 +18,8 @@ const sizeValueEl = document.querySelector(".size-value");
 const newArrayBtnEl = document.querySelector(".new-btn");
 const letsSortBtnEl = document.querySelector(".sort-btn");
 
+const explanationsEl = document.querySelectorAll(".explanation");
+
 /**
  * Set text content on the left complexity section
  *
@@ -35,32 +37,62 @@ const displayComplexityText = function (tWorst, tAver, tBest, sWorst) {
 };
 
 /**
+ * This function will display colors explanation for the algo we selected
+ *
+ * @param {*} clickedClass - the algo that we want to display color explanation for
+ */
+const displayColorsForClicked = function (clickedAlgo) {
+  for (let i = 0; i < explanationsEl.length; i++) {
+    if (`${clickedAlgo}-colors` === explanationsEl[i].classList[1]) {
+      explanationsEl[i].classList.remove("hidden");
+    } else {
+      explanationsEl[i].classList.add("hidden");
+    }
+  }
+};
+
+/**
  * Set complexity details for each algorithm when selected
+ * Display colors explanation for each algorithm when selected
  */
 let algoSelected;
 const displayComplexities = function () {
   algoSelected = this.value;
   switch (algoSelected) {
     case "default":
+      displayColorsForClicked("default");
       displayComplexityText("", "", "", "");
+      generateNewArray();
       break;
     case "bubble":
+      displayColorsForClicked("bubble");
       displayComplexityText("O(n^2)", "O(n^2)", "O(n)", "O(1)");
+      generateNewArray();
       break;
     case "selection":
+      displayColorsForClicked("selection");
       displayComplexityText("O(n^2)", "O(n^2)", "O(n^2)", "O(1)");
+      generateNewArray();
       break;
     case "insertion":
+      displayColorsForClicked("insertion");
       displayComplexityText("O(n^2)", "O(n^2)", "O(n)", "O(1)");
+      generateNewArray();
       break;
     case "merge":
+      displayColorsForClicked("merge");
       displayComplexityText("O(nlog(n))", "O(nlog(n))", "O(nlog(n))", "O(n)");
+      generateNewArray();
       break;
     case "quick":
+      displayColorsForClicked("quick");
       displayComplexityText("O(n^2)", "O(nlog(n))", "O(nlog(n))", "O(nlog(n))");
+      generateNewArray();
       break;
     case "heap":
+      displayColorsForClicked("heap");
       displayComplexityText("O(nlog(n))", "O(nlog(n))", "O(nlog(n))", "O(1)");
+      generateNewArray();
       break;
   }
 };
