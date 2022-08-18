@@ -1,3 +1,9 @@
+/**
+ * #ffd43b partition point
+ * #ff6b6b nodes being merged
+ * #228be6 merge completed (sorted)
+ */
+
 "use strict";
 
 interval = 0;
