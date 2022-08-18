@@ -11,12 +11,16 @@
 "use strict";
 
 interval = 0;
+tracerInterval = 0;
 
 const partition = function (left, right) {
   // use the leftmost value as pivot
   // mark it as yellow
   const pivot = barValue[left];
   animation(bars[left], barValue[left], "#ffd43b", interval++);
+
+  tracerAnimation("quick-set-pivot", true, tracerInterval++);
+  tracerAnimation("quick-set-pivot", false, tracerInterval);
 
   let i = left;
   let j = right;
@@ -27,6 +31,10 @@ const partition = function (left, right) {
       i++;
       if (i >= j) break;
       animation(bars[i], barValue[i], "#15aabf", interval++);
+
+      tracerAnimation("quick-left-pointer", true, tracerInterval++);
+      tracerAnimation("quick-left-pointer", false, tracerInterval);
+
       if (barValue[i] > pivot) {
         break;
       }
@@ -38,6 +46,10 @@ const partition = function (left, right) {
       j--;
       if (j < i) break;
       animation(bars[j], barValue[j], "#ff6b6b", interval++);
+
+      tracerAnimation("quick-right-pointer", true, tracerInterval++);
+      tracerAnimation("quick-right-pointer", false, tracerInterval);
+
       if (barValue[j] <= pivot) {
         break;
       }
@@ -50,20 +62,30 @@ const partition = function (left, right) {
       animation(bars[i], barValue[i], "#da77f2", interval);
       animation(bars[j], barValue[j], "#da77f2", interval++);
 
+      tracerAnimation("quick-swap-pointer", true, tracerInterval++);
+      tracerInterval++;
+
       swap(barValue, i, j);
 
       animation(bars[i], barValue[i], "#69db7c", interval);
       animation(bars[j], barValue[j], "#69db7c", interval++);
       animation(bars[i], barValue[i], "#96f2d7", interval);
-      animation(bars[j], barValue[j], "#96f2d7", interval++);
+      animation(bars[j], barValue[j], "#96f2d7", interval);
+
+      tracerAnimation("quick-swap-pointer", false, tracerInterval);
     }
   }
   animation(bars[j], barValue[j], "#faa2c1", interval++);
+  tracerInterval++;
 
   // if pivot is already at its correct position
   // then simply mark it as sorted and return its position
   if (left === j) {
     animation(bars[j], barValue[j], "#228be6", interval++);
+
+    tracerAnimation("quick-swap-pivot", true, tracerInterval++);
+    tracerAnimation("quick-swap-pivot", false, tracerInterval);
+
     return j;
   }
 
@@ -71,11 +93,16 @@ const partition = function (left, right) {
   animation(bars[left], barValue[left], "#da77f2", interval);
   animation(bars[j], barValue[j], "#da77f2", interval++);
 
+  tracerAnimation("quick-swap-pivot", true, tracerInterval++);
+  tracerInterval++;
+
   swap(barValue, left, j);
 
   // mark pivot as blue since it is the only element that is at its correct position for sure
   animation(bars[left], barValue[left], "#96f2d7", interval);
   animation(bars[j], barValue[j], "#228be6", interval++);
+
+  tracerAnimation("quick-swap-pivot", false, tracerInterval);
   return j;
 };
 
