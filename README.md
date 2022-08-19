@@ -1,6 +1,7 @@
 # Sorting Visualizer
 
 A webpage that shows the logic behind common sorting algorithms based on HTML, CSS, and vanilla JavaScript.
+Live site: https://zhao-zihan.github.io/sorting-algorithm-visualizer/
 
 ## Algorithms included on this page:
 
